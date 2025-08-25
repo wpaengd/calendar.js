@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar Demo Test</title>
-    <script src="dist/js-calendar-converter.js"></script>
     <style>
         body {
             font-family: 'Microsoft Yahei',"\5FAE\8F6F\96C5\9ED1",serif;
             color: #555;
             background-color: #fafafa;
-            position: relative;
             font-size: 14px;
             max-width: 800px;
             margin: 10px auto;
         }
-        。result {
-            width: 800px;
-            min-height: 410px;
-            border: 1px solid #ccc;
+        pre {
+            padding: 10px;
             background-color: #fff;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            outline: none;
-        }
-        code {
-            padding: 2px 4px;
-            font-size: 90%;
-            color: #c7254e;
-            background-color: #f9f2f4;
-            border-radius: 4px;
-            margin: 0 3px;
+            overflow-x: auto;
         }
     </style>
 </head>
 <body>
-<form id="formDemo">
-    <p>调用<code>calendar.solar2lunar()</code>输出结果如下：</p>
-    <textarea id="result" class="result"></textarea>
-</form>
-</body>
+<pre id="result"></pre>
 <script>
-    document.getElementById("result").value = JSON.stringify(calendar.solar2lunar(), null, 4);
+    const calendarData = {
+        "date": "2025-8-25",
+        "lunarDate": "2025-7-3",
+        "festival": null,
+        "lunarFestival": null，
+        "lYear": 2025，
+        "lMonth": 7,
+        "lDay": 3,
+        "Animal": "蛇",
+        "IMonthCn": "七月"，
+        "IDayCn": "初三",
+        "cYear": 2025，
+        "cMonth": 8,
+        "cDay": 25,
+        "gzYear": "乙巳",
+        "gzMonth": "甲申",
+        "gzDay": "丙寅",
+        "isToday": true,
+        "isLeap": false,
+        "nWeek": 1,
+        "ncWeek": "星期一",
+        "isTerm": false,
+        "Term": null,
+        "astro": "处女座"
+    };
+
+    document.getElementById("result").textContent = JSON.stringify(calendarData, null, 4);
 </script>
+</body>
 </html>
