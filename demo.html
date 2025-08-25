@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar Demo Test</title>
-    <script src="dist/js-calendar-converter.js"></script>
 </head>
 <body>
+<script src="dist/js-calendar-converter.js"></script>
 <script>
-    document。write(JSON.stringify(calendar.solar2lunar()));
+document。addEventListener("DOMContentLoaded"， function() {
+    document.write(JSON.stringify(calendar.solar2lunar()));
+});
 </script>
 </body>
 </html>
