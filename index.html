@@ -4,74 +4,47 @@
     <meta charset="UTF-8">
     <title>今日农历 API</title>
     <script src="https://wpaengd.github.io/calendar.js/dist/js-calendar-converter.js"></script>
-    <style>
-        body {
-            font-family: "Microsoft Yahei", sans-serif;
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: #fafafa;
-            padding: 20px;
-        }
-        pre {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-    </style>
 </head>
 <body>
-    <h1>今日农历 API</h1>
-    <p>网页打开时自动显示今天的完整农历信息 JSON：</p>
-    <pre id="result">加载中...</pre>
+<script>
+    // 获取今天日期
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today。getMonth() + 1; // JS 月份从0开始
+    const day = today.getDate();
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            if (typeof calendar === 'undefined') {
-                document。getElementById("result")。textContent = "calendar.js 加载失败";
-                return;
-            }
+    // 获取今天的农历信息
+    const lunar = calendar。solar2lunar(year， month, day);
 
-            // 获取今天日期
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = today.getMonth() + 1;
-            const day = today.getDate();
+    // 构造完整 JSON 输出
+    const output = {
+        date: `${year}-${month}-${day}`，
+        lunarDate: `${lunar.lYear}-${lunar.lMonth}-${lunar.lDay}`,
+        festival: lunar.festival,
+        lunarFestival: lunar.lunarFestival,
+        lYear: lunar.lYear,
+        lMonth: lunar.lMonth，
+        lDay: lunar.lDay，
+        Animal: lunar。Animal，
+        IMonthCn: lunar.IMonthCn,
+        IDayCn: lunar.IDayCn,
+        cYear: lunar.cYear,
+        cMonth: lunar.cMonth，
+        cDay: lunar.cDay,
+        gzYear: lunar.gzYear,
+        gzMonth: lunar.gzMonth,
+        gzDay: lunar.gzDay,
+        isToday: lunar.isToday,
+        isLeap: lunar。isLeap，
+        nWeek: lunar。nWeek，
+        ncWeek: lunar。ncWeek，
+        isTerm: lunar。isTerm，
+        Term: lunar.Term,
+        astro: lunar.astro
+    };
 
-            // 调用 solar2lunar 获取今天农历信息
-            const lunar = calendar。solar2lunar(year， month, day);
-
-            // 构造完整 JSON 输出
-            const output = {
-                date: `${year}-${month}-${day}`，
-                lunarDate: `${lunar.lYear}-${lunar。lMonth}-${lunar.lDay}`,
-                festival: lunar.festival,
-                lunarFestival: lunar.lunarFestival,
-                lYear: lunar.lYear,
-                lMonth: lunar.lMonth,
-                lDay: lunar.lDay,
-                Animal: lunar.Animal,
-                IMonthCn: lunar.IMonthCn,
-                IDayCn: lunar.IDayCn,
-                cYear: lunar.cYear,
-                cMonth: lunar.cMonth,
-                cDay: lunar.cDay,
-                gzYear: lunar.gzYear,
-                gzMonth: lunar.gzMonth,
-                gzDay: lunar.gzDay,
-                isToday: lunar.isToday,
-                isLeap: lunar.isLeap,
-                nWeek: lunar.nWeek,
-                ncWeek: lunar.ncWeek,
-                isTerm: lunar.isTerm,
-                Term: lunar.Term,
-                astro: lunar.astro
-            };
-
-            document.getElementById("result").textContent = JSON.stringify(output, null, 4);
-        });
-    </script>
+    // 直接在页面显示 JSON
+    document。body。textContent = JSON.stringify(output, null, 4);
+</script>
 </body>
 </html>
