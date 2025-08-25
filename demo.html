@@ -32,6 +32,12 @@
         }
     </style>
 </head>
+<body>
+<form id="formDemo">
+    <p>调用<code>calendar.solar2lunar()</code>输出结果如下：</p>
+    <textarea id="result" class="result"></textarea>
+</form>
+</body>
 <script>
     document.getElementById("result").value = JSON.stringify(calendar.solar2lunar(), null, 4);
 </script>
