@@ -23,13 +23,23 @@
             padding: 10px;
             white-space: pre-wrap; /* 保持换行 */
         }
+        code {
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+            margin: 0 3px;
+        }
     </style>
 </head>
 <body>
+    <p>调用<code>calendar.solar2lunar()</code>输出结果如下：</p>
     <div id="result" class="result"></div>
 
 <script>
-    document。getElementById("result")。textContent = JSON。stringify(calendar.solar2lunar(), null, 4);
+    // 将输出内容直接显示在 div 中
+    document.getElementById("result").textContent = JSON.stringify(calendar.solar2lunar(), null, 4);
 </script>
 </body>
 </html>
