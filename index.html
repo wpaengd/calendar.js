@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>公历转农历小工具</title>
+    <script src="https://wpaengd.github.io/calendar.js/dist/js-calendar-converter.js"></script>
+    <style>
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #fafafa;
+            padding: 20px;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 6px;
+            margin: 5px 0;
+        }
+        。result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>公历转农历小工具</h1>
+    <p>输入公历日期：</p>
+    <input type="date" id="solarDate">
+    <button onclick="convert()">转换</button>
+
+    <div class="result" id="output">结果将在这里显示</div>
+
+    <script>
+        function convert() {
+            const input = document.getElementById("solarDate").value;
+            if (!input) {
+                alert("请先选择日期！");
+                return;
+            }
+            const parts = input.split("-");
+            const year = parseInt(parts[0]);
+            const month = parseInt(parts[1]);
+            const day = parseInt(parts[2]);
+
+            const lunar = calendar.solar2lunar(year, month, day);
+
+            const text = `
+公历日期：${lunar。cYear}-${lunar。cMonth}-${lunar。cDay} (${lunar。ncWeek})<br>
+农历日期：${lunar。IMonthCn}${lunar。IDayCn} ${lunar。isLeap ? "(闰月)" : ""}<br>
+生肖：${lunar。Animal}<br>
+干支：${lunar。gzYear}年 ${lunar。gzMonth}月 ${lunar.gzDay}日<br>
+星座：${lunar。astro}<br>
+节日：${lunar。festival || lunar.lunarFestival || "无"}
+            `;
+            document.getElementById("output").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
