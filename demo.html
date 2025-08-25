@@ -3,13 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendar Demo Test</title>
+    <script src="dist/js-calendar-converter.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft Yahei',"\5FAE\8F6F\96C5\9ED1",serif;
+            color: #555;
+            background-color: #fafafa;
+            position: relative;
+            font-size: 14px;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+        .result {
+            width: 800px;
+            min-height: 410px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+            outline: none;
+        }
+        code {
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+            margin: 0 3px;
+        }
+    </style>
 </head>
 <body>
-<script src="dist/js-calendar-converter.js"></script>
-<script>
-document。addEventListener("DOMContentLoaded"， function() {
-    document.write(JSON.stringify(calendar.solar2lunar()));
-});
-</script>
+<form id="formDemo">
+    <p>调用<code>calendar.solar2lunar()</code>输出结果如下：</p>
+    <textarea id="result" class="result"></textarea>
+</form>
 </body>
+<script>
+    document.getElementById("result").value = JSON.stringify(calendar.solar2lunar(), null, 4);
+</script>
 </html>
