@@ -2,44 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Calendar Demo Test</title>
+    <title>Calendar JSON Output</title>
     <script src="dist/js-calendar-converter.js"></script>
-    <style>
-        body {
-            font-family: 'Microsoft Yahei',"\5FAE\8F6F\96C5\9ED1",serif;
-            color: #555;
-            background-color: #fafafa;
-            position: relative;
-            font-size: 14px;
-            max-width: 800px;
-            margin: 10px auto;
-        }
-        。result {
-            width: 100%;
-            min-height: 410px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 10px;
-            white-space: pre-wrap; /* 保持换行 */
-        }
-        code {
-            padding: 2px 4px;
-            font-size: 90%;
-            color: #c7254e;
-            background-color: #f9f2f4;
-            border-radius: 4px;
-            margin: 0 3px;
-        }
-    </style>
 </head>
 <body>
-    <p>调用<code>calendar.solar2lunar()</code>输出结果如下：</p>
-    <div id="result" class="result"></div>
-
 <script>
-    // 将输出内容直接显示在 div 中
-    document.getElementById("result").textContent = JSON.stringify(calendar.solar2lunar(), null, 4);
+    // 直接输出 calendar.solar2lunar() 的 JSON
+    document.write(JSON.stringify(calendar.solar2lunar()));
 </script>
 </body>
 </html>
