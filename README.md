@@ -1,6 +1,6 @@
 # calendar.js
 
-中国农历（阴阳历）和西元阳历即公历互转JavaScript库
+中国农历（阴阳历）与公历（西元阳历）互转的 JavaScript 库，支持 1900–3000 年
 
 **在线示例**: [https://jjonline.github.io/calendar.js/demo.html](https://jjonline.github.io/calendar.js/demo.html)
 

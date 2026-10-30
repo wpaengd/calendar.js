@@ -1,7 +1,7 @@
 {
   "name": "js-calendar-converter",
   "version": "0.0.1",
-  "description": "Chinese Lunar Calendar (Luminous Calendar) and Western Yuan Gregorian Calendar Interconversion JavaScript Library",
+  "description": "Chinese lunisolar (lunar) and Gregorian calendar conversion library for JavaScript",
   "main": "dist/js-calendar-converter.cjs",
   "module": "dist/js-calendar-converter.mjs",
   "scripts": {
